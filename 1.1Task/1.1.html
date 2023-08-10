@@ -3,140 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voting Poll</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Internal Style */
-        h1
-        {
-            font-size: 40px;
-            justify-content: center;
-            align-items: center;
-            height: 10vh; /* This ensures the content occupies the full height of the viewport */
-            margin: 0; /* Remove default body margin */
-            padding: 0;
-        }
-        
-        table {
-            border-collapse: collapse;
-        }
-
-        tr, th, td {
-            padding: 20px;
-            border: 4px solid black;
-            font-size: 40px;
-        }
-    </style>
+    <title>Voting Poll </title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <h1>This is the main title</h1> -->
+   
     <table>
         <caption>Voting Pool
 
         </caption>
         <tr>
-        <th> <img src="helloImage.png"></th>
-        <th> Heading 2</th>
-        <th> Heading 3</th>
+        <th> <img src="Green-Party-Logo-Google.avif" alt="Green Party" style="width:100px;height:100px;"></th>
+        <th> <img src="ALP_logo_2017.svg.png" alt="Labour Party" style="width:100px;height:100px;"></th>
+        <th> <img src="Liberal_Party_of_Australia_logo.svg.png" alt="Liberal Party" style="width:100px;height:100px;"></th>
         </tr>
 
       
     </table>
-    <img src="helloImage.png">
 
-    <form class="formstyle"> 
 
-        <label for="Name">Name: </label>
+    <form class="formstyle">
+
+        <label for="name">Name: </label>
         <input type="text" name="name">
-        <br> 
-        <label for="Email">Email: </label>
-        <input type="text" email="email">
-    
-        <div>
-            <label for="name">Age: </label>
-            <input type="text" name="name">
-    
-    
         <br>
-        <label for="Email">Phone Number: </label>
-        <input type="text" name="name">
+        <label for="email">Email: </label>
+        <input type="text" name="email">
     
         <div>
-    
+            <label for="age">Age: </label>
+            <input type="text" name="age">
         </div>
     
-        <select>
-            <option selected disbled > Select an option</option>
+        <br>
+        <label for="phoneNumber">Phone Number: </label>
+        <input type="text" name="phoneNumber">
+    
+        <div>
+        </div>
+    
+        <select name="selectedOption">
+            <option selected disabled> Select an option</option>
             <option> First Option </option>
             <option> Second Option</option>
             <option> Third Option</option>
             <option> Last Option</option>
-            
         </select>
         <div>
+        </div>
     
         <div>
             <fieldset>
-            <h2> Please check all the boxes relevant:</h2>
-            <lable><input type ="checkbox" name="game" > First Option </lable>
-            <br>
-            <lable><input type ="checkbox" name="game" > Second Option </lable>
-            <br>
-            <lable><input type ="checkbox" name="game" > Third Option </lable>
+                <h2> Please check all the boxes relevant:</h2>
+                <label><input type="checkbox" name="relevantOption" value="First Option"> First Option </label>
+                <br>
+                <label><input type="checkbox" name="relevantOption" value="Second Option"> Second Option </label>
+                <br>
+                <label><input type="checkbox" name="relevantOption" value="Third Option"> Third Option </label>
             </fieldset>
         </div>
     
         <div>
             <fieldset>
-            <h2> Please select one option:</h2>
-            <lable><input type ="radio" name="game" />First Option </lable>
-            <br>
-            <lable><input type ="radio" name="game" />Second Option </lable>
-            <br>
-            <lable><input type ="radio" name="game" > Third Option </lable>
+                <h2> Please select one option:</h2>
+                <label><input type="radio" name="selectedRadio" value="First Option"> First Option </label>
+                <br>
+                <label><input type="radio" name="selectedRadio" value="Second Option"> Second Option </label>
+                <br>
+                <label><input type="radio" name="selectedRadio" value="Third Option"> Third Option </label>
             </fieldset>
         </div>
     
-    
         <div>
-        Pick a date: <input type="date" name="date" value=""/>
+            Pick a date: <input type="date" name="selectedDate" value=""/>
         </div>
     
-        
-        
-        
-        
         <div>
-           
             <fieldset>
-                
                 <textarea style="height: 100px; width: 200px;" id="comment" name="comment">Please provide your comment</textarea>
             </fieldset>
         </div>
     
+        <div>
+            <input class="submitbutton" type="submit" value="Submit" />
+        </div>
     
-    <div>
-        <input class="submitbutton" type ="sumbit" onclick="alert('Hello')" value="submit" />
-    </div>
+    </form>
+    
     
     </form>
     
     <script>
-        function showFormData(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector(".formstyle");
     
-            // Get the form data
-            const formData = new FormData(event.target);
-            let message = "Form Data:\n";
-            for (const [key, value] of formData.entries()) {
-                message += `${key}: ${value}\n`;
-            }
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); 
     
-            // Show the form data in an alert message
-            alert(message);
-        }
+                
+                const formData = new FormData(form);
+                let message = "Form Data:\n";
+                for (const [key, value] of formData.entries()) {
+                    message += `${key}: ${value}\n`;
+                }
+    
+               
+                const partyChoice = document.querySelector('input[name="game"]:checked');
+                if (partyChoice) {
+                    message += `Party Choice: ${partyChoice.value}\n`;
+                }
+    
+             
+                alert(message);
+            });
+        });
     </script>
-
+    
 
 
 
