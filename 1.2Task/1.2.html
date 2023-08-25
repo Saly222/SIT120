@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Concepts</title>
+</head>
+<body>
+    <script>
+        // String methods
+        let str = 'Hello, World!';
+        console.log(str.length);                // Output: 13
+        console.log(str.toUpperCase());         // Output: HELLO, WORLD!
+        console.log(str.substring(0, 5));      // Output: Hello
+        console.log(str.indexOf('World'));      // Output: 7
+        console.log(str.split(','));            // Output: ['Hello', ' World!']
+
+        // Number methods
+        let num = 42.9876;
+        console.log(num.toFixed(2));            // Output: 42.99
+        console.log(num.toPrecision(4));        // Output: 42.99
+        console.log(Math.floor(num));           // Output: 42
+        console.log(Math.random());             // Output: Random value between 0 and 1
+        console.log(Math.max(5, 10, 2));        // Output: 10
+
+        // Array methods
+        let arr = [1, 2, 3, 'four', 5];
+        console.log(arr.length);                // Output: 5
+        console.log(arr.reverse());             // Output: [5, 'four', 3, 2, 1]
+        console.log(arr.indexOf('four'));       // Output: 1
+        console.log(arr.join('-'));             // Output: "5-four-3-2-1"
+        console.log(arr.slice(1, 4));           // Output: ['four', 3, 2]
+
+        // Date methods
+        let date = new Date();
+        console.log(date.getFullYear());        // Output: Current year
+        console.log(date.getMonth());           // Output: Current month (0-11)
+        console.log(date.getDate());            // Output: Current day of the month
+        console.log(date.getHours());           // Output: Current hour (0-23)
+        console.log(date.getMinutes());         // Output: Current minute
+
+        // Function methods
+        function greet(name) {
+            return 'Hello, ' + name + '!';
+        }
+        console.log(greet('SIT120'));            // Output: Hello, SIT120!
+        console.log(greet('HTML'));              // Output: Hello, HTML!
+
+        function add(x, y) {
+            return x + y;
+        }
+        console.log(add(5, 7));                 // Output: 12
+        console.log(add(10, 3));                // Output: 13
+    </script>
+</body>
+</html>
