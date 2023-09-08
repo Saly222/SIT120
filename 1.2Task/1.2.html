@@ -1,54 +1,278 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .Responsive-Web-Design {
+            max-width: 100%;
+            height: auto;
+            display: block; 
+            margin: 0 auto; 
+        }
+        
+    </style>
 </head>
 <body>
+    <header>
+        Reponsive Website and JavaScript Concepts Implementation
+    </header>
+    <img class="Responsive-Web-Design" src="Responsive-Web-Design.jpg" style="max-width:100%;height:auto">
+    <div class="container">
+
+        <h2>String Methods</h2>
+        <input type="text" id="userInputString" placeholder="Enter a string">
+        <button onclick="processStringLength()">String Length</button>
+        <button onclick="processToUpperCase()">To Uppercase</button>
+        <button onclick="processToLowerCase()">To Lowercase</button>
+        <button onclick="processSubstring()">Substring</button>
+        <button onclick="processIndexOf()">Index of "World"</button>
+        <p id="stringOutput"></p>
+
+        <h2>Number Methods</h2>
+        <input type="number" id="userInputNumber" placeholder="Enter a number">
+        <button onclick="processToFixed()">To Fixed (2 decimal places)</button>
+        <button onclick="processToExponential()">To Exponential</button>
+        <button onclick="processMathFloor()">Math Floor</button>
+        <button onclick="processMathRandom()">Math Random</button>
+        <button onclick="processMathMax()">Math Max (5, 10, 2)</button>
+        <p id="numberOutput"></p>
+
+        <h2>Array Methods</h2>
+        <input type="text" id="userInputArray" placeholder="Enter an array (comma-separated)">
+        <button onclick="processArrayLength()">Array Length</button>
+        <button onclick="processReverseArray()">Reverse Array</button>
+        <button onclick="processIndexOfArray()">Index of "four"</button>
+        <button onclick="processJoinArray()">Join Array</button>
+        <button onclick="processSliceArray()">Slice Array (1-4)</button>
+        <p id="arrayOutput"></p>
+
+        <h2>Date Methods</h2>
+        <button onclick="processCurrentDate()">Current Date</button>
+        <button onclick="processYear()">Year</button>
+        <button onclick="processMonth()">Month (0-11)</button>
+        <button onclick="processDay()">Day of the Month</button>
+        <button onclick="processHours()">Hours (0-23)</button>
+        <p id="dateOutput"></p>
+
+        <h2>Function Methods</h2>
+        <input type="text" id="userInputName" placeholder="Enter your name">
+        <input type="number" id="userInputNum1" placeholder="Enter a number">
+        <input type="number" id="userInputNum2" placeholder="Enter another number">
+        <button onclick="processGreet()">Greet</button>
+        <button onclick="processAdd()">Add</button>
+        <button onclick="processMultiply()">Multiply</button>
+        <button onclick="processDivide()">Divide</button>
+        <button onclick="processSubtract()">Subtract</button>
+        <p id="functionOutput"></p>
+    </div>
+
     <script>
         // String methods
-        let str = 'Hello, World!';
-        console.log(str.length);                // Output: 13
-        console.log(str.toUpperCase());         // Output: HELLO, WORLD!
-        console.log(str.substring(0, 5));      // Output: Hello
-        console.log(str.indexOf('World'));      // Output: 7
-        console.log(str.split(','));            // Output: ['Hello', ' World!']
+        function processStringLength() {
+            let userInputString = document.getElementById('userInputString').value;
+            let stringOutput = document.getElementById('stringOutput');
+            stringOutput.innerHTML = 'String Length: ' + userInputString.length;
+        }
+
+        function processToUpperCase() {
+            let userInputString = document.getElementById('userInputString').value;
+            let stringOutput = document.getElementById('stringOutput');
+            stringOutput.innerHTML = 'Uppercase: ' + userInputString.toUpperCase();
+        }
+
+        function processToLowerCase() {
+            let userInputString = document.getElementById('userInputString').value;
+            let stringOutput = document.getElementById('stringOutput');
+            stringOutput.innerHTML = 'Lowercase: ' + userInputString.toLowerCase();
+        }
+
+        function processSubstring() {
+            let userInputString = document.getElementById('userInputString').value;
+            let stringOutput = document.getElementById('stringOutput');
+            stringOutput.innerHTML = 'Substring: ' + userInputString.substring(0, 5);
+        }
+
+        function processIndexOf() {
+            let userInputString = document.getElementById('userInputString').value;
+            let stringOutput = document.getElementById('stringOutput');
+            stringOutput.innerHTML = 'Index of "World": ' + userInputString.indexOf('World');
+        }
 
         // Number methods
-        let num = 42.9876;
-        console.log(num.toFixed(2));            // Output: 42.99
-        console.log(num.toPrecision(4));        // Output: 42.99
-        console.log(Math.floor(num));           // Output: 42
-        console.log(Math.random());             // Output: Random value between 0 and 1
-        console.log(Math.max(5, 10, 2));        // Output: 10
+        function processToFixed() {
+            let userInputNumber = parseFloat(document.getElementById('userInputNumber').value);
+            let numberOutput = document.getElementById('numberOutput');
+            numberOutput.innerHTML = 'To Fixed (2 decimal places): ' + userInputNumber.toFixed(2);
+        }
+
+        function processToExponential() {
+            let userInputNumber = parseFloat(document.getElementById('userInputNumber').value);
+            let numberOutput = document.getElementById('numberOutput');
+            numberOutput.innerHTML = 'To Exponential: ' + userInputNumber.toExponential();
+        }
+
+        function processMathFloor() {
+            let userInputNumber = parseFloat(document.getElementById('userInputNumber').value);
+            let numberOutput = document.getElementById('numberOutput');
+            numberOutput.innerHTML = 'Math Floor: ' + Math.floor(userInputNumber);
+        }
+
+        function processMathRandom() {
+            let numberOutput = document.getElementById('numberOutput');
+            numberOutput.innerHTML = 'Math Random: ' + Math.random();
+        }
+
+        function processMathMax() {
+            let numberOutput = document.getElementById('numberOutput');
+            numberOutput.innerHTML = 'Math Max (5, 10, 2): ' + Math.max(5, 10, 2);
+        }
 
         // Array methods
-        let arr = [1, 2, 3, 'four', 5];
-        console.log(arr.length);                // Output: 5
-        console.log(arr.reverse());             // Output: [5, 'four', 3, 2, 1]
-        console.log(arr.indexOf('four'));       // Output: 1
-        console.log(arr.join('-'));             // Output: "5-four-3-2-1"
-        console.log(arr.slice(1, 4));           // Output: ['four', 3, 2]
+        function processArrayLength() {
+            let userInputArray = document.getElementById('userInputArray').value.split(',');
+            let arrayOutput = document.getElementById('arrayOutput');
+            arrayOutput.innerHTML = 'Array Length: ' + userInputArray.length;
+        }
+
+        function processReverseArray() {
+            let userInputArray = document.getElementById('userInputArray').value.split(',');
+            let arrayOutput = document.getElementById('arrayOutput');
+            arrayOutput.innerHTML = 'Reverse Array: ' + userInputArray.reverse();
+        }
+
+        function processIndexOfArray() {
+            let userInputArray = document.getElementById('userInputArray').value.split(',');
+            let arrayOutput = document.getElementById('arrayOutput');
+            arrayOutput.innerHTML = 'Index of "four": ' + userInputArray.indexOf('four');
+        }
+
+        function processJoinArray() {
+            let userInputArray = document.getElementById('userInputArray').value.split(',');
+            let arrayOutput = document.getElementById('arrayOutput');
+            arrayOutput.innerHTML = 'Join Array: ' + userInputArray.join('-');
+        }
+
+        function processSliceArray() {
+            let userInputArray = document.getElementById('userInputArray').value.split(',');
+            let arrayOutput = document.getElementById('arrayOutput');
+            arrayOutput.innerHTML = 'Slice Array (1-4): ' + userInputArray.slice(1, 4);
+        }
 
         // Date methods
-        let date = new Date();
-        console.log(date.getFullYear());        // Output: Current year
-        console.log(date.getMonth());           // Output: Current month (0-11)
-        console.log(date.getDate());            // Output: Current day of the month
-        console.log(date.getHours());           // Output: Current hour (0-23)
-        console.log(date.getMinutes());         // Output: Current minute
+        function processCurrentDate() {
+            let date = new Date();
+            let dateOutput = document.getElementById('dateOutput');
+            dateOutput.innerHTML = 'Current Date: ' + date.toString();
+        }
+
+        function processYear() {
+            let date = new Date();
+            let dateOutput = document.getElementById('dateOutput');
+            dateOutput.innerHTML = 'Year: ' + date.getFullYear();
+        }
+
+        function processMonth() {
+            let date = new Date();
+            let dateOutput = document.getElementById('dateOutput');
+            dateOutput.innerHTML = 'Month (0-11): ' + date.getMonth();
+        }
+
+        function processDay() {
+            let date = new Date();
+            let dateOutput = document.getElementById('dateOutput');
+            dateOutput.innerHTML = 'Day of the Month: ' + date.getDate();
+        }
+
+        function processHours() {
+            let date = new Date();
+            let dateOutput = document.getElementById('dateOutput');
+            dateOutput.innerHTML = 'Hours (0-23): ' + date.getHours();
+        }
 
         // Function methods
-        function greet(name) {
-            return 'Hello, ' + name + '!';
+        function processGreet() {
+            let userName = document.getElementById('userInputName').value;
+            let functionOutput = document.getElementById('functionOutput');
+            functionOutput.innerHTML = 'Hello, ' + userName + '!';
         }
-        console.log(greet('SIT120'));            // Output: Hello, SIT120!
-        console.log(greet('HTML'));              // Output: Hello, HTML!
 
-        function add(x, y) {
-            return x + y;
+        function processAdd() {
+            let num1 = parseFloat(document.getElementById('userInputNum1').value);
+            let num2 = parseFloat(document.getElementById('userInputNum2').value);
+            let functionOutput = document.getElementById('functionOutput');
+            functionOutput.innerHTML = 'Addition: ' + (num1 + num2);
         }
-        console.log(add(5, 7));                 // Output: 12
-        console.log(add(10, 3));                // Output: 13
+
+        function processMultiply() {
+            let num1 = parseFloat(document.getElementById('userInputNum1').value);
+            let num2 = parseFloat(document.getElementById('userInputNum2').value);
+            let functionOutput = document.getElementById('functionOutput');
+            functionOutput.innerHTML = 'Multiplication: ' + (num1 * num2);
+        }
+
+        function processDivide() {
+            let num1 = parseFloat(document.getElementById('userInputNum1').value);
+            let num2 = parseFloat(document.getElementById('userInputNum2').value);
+            let functionOutput = document.getElementById('functionOutput');
+            functionOutput.innerHTML = 'Division: ' + (num1 / num2);
+        }
+
+        function processSubtract() {
+            let num1 = parseFloat(document.getElementById('userInputNum1').value);
+            let num2 = parseFloat(document.getElementById('userInputNum2').value);
+            let functionOutput = document.getElementById('functionOutput');
+            functionOutput.innerHTML = 'Subtraction: ' + (num1 - num2);
+        }
     </script>
 </body>
 </html>
